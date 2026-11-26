@@ -1,0 +1,343 @@
+{
+  "tensor_basics": {
+    "a": [
+      [
+        0.0,
+        1.0,
+        2.0
+      ],
+      [
+        3.0,
+        4.0,
+        5.0
+      ]
+    ],
+    "a_plus_bias(broadcast)": [
+      [
+        10.0,
+        21.0,
+        32.0
+      ],
+      [
+        13.0,
+        24.0,
+        35.0
+      ]
+    ],
+    "inner_product_v1_v2": 32.0,
+    "outer_product_shape": [
+      3,
+      3
+    ],
+    "matmul_a_aT": [
+      [
+        5.0,
+        14.0
+      ],
+      [
+        14.0,
+        50.0
+      ]
+    ],
+    "reshape_2x3_to_3x2": [
+      [
+        0.0,
+        1.0
+      ],
+      [
+        2.0,
+        3.0
+      ],
+      [
+        4.0,
+        5.0
+      ]
+    ],
+    "nhwc_to_nchw_shape": [
+      4,
+      3,
+      32,
+      32
+    ],
+    "flatten_batch_shape": [
+      4,
+      3072
+    ]
+  },
+  "activations_and_neurons": {
+    "logic_gates": {
+      "inputs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "AND(w=[1,1], \u03b8=2)": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "OR(w=[1,1], \u03b8=1)": [
+        0.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "NOT(w=[-1], \u03b8=0)": [
+        1.0,
+        0.0
+      ]
+    },
+    "sigmoid_neuron_example": {
+      "weighted_sum": 0.7000000000000001,
+      "activation": 0.6681877721681662
+    }
+  },
+  "svd": {
+    "relative_error_by_rank": {
+      "1": 0.18718159198760986,
+      "4": 0.08496730774641037,
+      "8": 0.03965799883008003,
+      "16": 0.00730339577421546
+    }
+  },
+  "gradient_check": {
+    "toy_function_relative_error": 1.5187133539450153e-10,
+    "mlp_relu_max_relative_error": 2.6788039061495463e-08,
+    "mlp_sigmoid_max_relative_error": 1.1065593726035759e-07,
+    "mlp_tanh_max_relative_error": 1.179278643940254e-08,
+    "tolerance": 1e-05,
+    "passed": true
+  },
+  "optimizers": {
+    "batch GD (full batch)": {
+      "lr": 0.5,
+      "batch_size": "full",
+      "final_train_loss": 0.45117078962372464,
+      "final_val_acc": 0.7668639053254438,
+      "best_val_acc": 0.7668639053254438
+    },
+    "SGD (bs 64)": {
+      "lr": 0.01,
+      "batch_size": 64,
+      "final_train_loss": 0.20032764393383617,
+      "final_val_acc": 0.8307692307692308,
+      "best_val_acc": 0.8325443786982248
+    },
+    "Momentum (bs 64)": {
+      "lr": 0.01,
+      "batch_size": 64,
+      "final_train_loss": 0.009903783853588068,
+      "final_val_acc": 0.8721893491124261,
+      "best_val_acc": 0.8751479289940829
+    },
+    "Nesterov (bs 64)": {
+      "lr": 0.01,
+      "batch_size": 64,
+      "final_train_loss": 0.009903091699160482,
+      "final_val_acc": 0.8704142011834319,
+      "best_val_acc": 0.8733727810650888
+    }
+  },
+  "ablations": {
+    "baseline": {
+      "settings": {
+        "init": "he",
+        "standardise": true,
+        "weight_decay": 0.0001,
+        "augment": false
+      },
+      "train_acc": 0.9998449612403101,
+      "val_acc": 0.8751479289940829,
+      "generalisation_gap": 0.12469703224622719
+    },
+    "init=small(0.01)": {
+      "settings": {
+        "init": "small",
+        "standardise": true,
+        "weight_decay": 0.0001,
+        "augment": false
+      },
+      "train_acc": 0.9984496124031008,
+      "val_acc": 0.8834319526627219,
+      "generalisation_gap": 0.11501765974037892
+    },
+    "no standardisation": {
+      "settings": {
+        "init": "he",
+        "standardise": false,
+        "weight_decay": 0.0001,
+        "augment": false
+      },
+      "train_acc": 0.8911627906976745,
+      "val_acc": 0.7461538461538462,
+      "generalisation_gap": 0.1450089445438283
+    },
+    "weight_decay=0": {
+      "settings": {
+        "init": "he",
+        "standardise": true,
+        "weight_decay": 0.0,
+        "augment": false
+      },
+      "train_acc": 0.9998449612403101,
+      "val_acc": 0.8751479289940829,
+      "generalisation_gap": 0.12469703224622719
+    },
+    "weight_decay=1e-2": {
+      "settings": {
+        "init": "he",
+        "standardise": true,
+        "weight_decay": 0.01,
+        "augment": false
+      },
+      "train_acc": 0.9889922480620155,
+      "val_acc": 0.8686390532544379,
+      "generalisation_gap": 0.12035319480757756
+    },
+    "augmentation x2 copies": {
+      "settings": {
+        "init": "he",
+        "standardise": true,
+        "weight_decay": 0.0001,
+        "augment": true
+      },
+      "train_acc": 0.9996899224806202,
+      "val_acc": 0.8798816568047337,
+      "generalisation_gap": 0.11980826567588643
+    }
+  },
+  "learning_rules": {
+    "hebbian_weight_norm_first_last": [
+      0.029047649578949022,
+      839.9905344730644
+    ],
+    "oja_cosine_with_pc1": 0.9995727291670488,
+    "oja_weight_norm": 1.000497941645638,
+    "competitive_prototypes": [
+      [
+        3.0,
+        2.98
+      ],
+      [
+        -0.01,
+        3.03
+      ],
+      [
+        0.0,
+        -0.01
+      ]
+    ],
+    "delta_rule_weights(w1,w2,bias)": [
+      1.491,
+      -0.694,
+      0.3
+    ],
+    "delta_rule_true": [
+      1.5,
+      -0.7,
+      0.3
+    ],
+    "hopfield_energy_trace": [
+      -368.0,
+      -736.0,
+      -736.0,
+      -736.0,
+      -736.0,
+      -736.0
+    ],
+    "hopfield_recalled_exactly": true,
+    "note": "Syllabus demonstrations only; not used by the production pipeline."
+  },
+  "convolution": {
+    "shape_calculations(out=floor((n+2p-k)/s)+1)": [
+      {
+        "input": 32,
+        "kernel": 3,
+        "stride": 1,
+        "padding": 1,
+        "output": 32
+      },
+      {
+        "input": 32,
+        "kernel": 5,
+        "stride": 1,
+        "padding": 2,
+        "output": 32
+      },
+      {
+        "input": 32,
+        "kernel": 3,
+        "stride": 2,
+        "padding": 1,
+        "output": 16
+      },
+      {
+        "input": 32,
+        "kernel": 5,
+        "stride": 1,
+        "padding": 0,
+        "output": 28
+      },
+      {
+        "input": 16,
+        "kernel": 3,
+        "stride": 1,
+        "padding": 1,
+        "output": 16
+      }
+    ],
+    "multichannel_output_shape": [
+      4,
+      32,
+      32
+    ],
+    "conv3d_input_shape": [
+      3,
+      32,
+      32
+    ],
+    "conv3d_output_shape": [
+      2,
+      30,
+      30
+    ]
+  },
+  "cnn_feature_maps": {
+    "conv1_kernels": 16
+  },
+  "parameters_vs_hyperparameters": {
+    "trainable_parameters(HOG-MLP 372-256-43)": 106539,
+    "trainable_parameters(SmallCNN)": 273675,
+    "hyperparameters_examples": {
+      "hidden_sizes": [
+        256
+      ],
+      "learning_rate": 0.02,
+      "batch_size": 128,
+      "epochs": 15,
+      "weight_decay": 0.0001,
+      "init": "he",
+      "optimizer": "momentum"
+    },
+    "note": "Parameters are learned by gradient descent; hyperparameters are chosen by the experimenter using the validation split."
+  },
+  "data_subset": {
+    "train_images": 6450,
+    "val_images": 1690,
+    "per_class_train": 150
+  }
+}

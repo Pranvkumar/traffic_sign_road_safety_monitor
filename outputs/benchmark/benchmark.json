@@ -1,0 +1,37 @@
+{
+  "input": "IDD test images 1280x964, batch size 1",
+  "repeats": 20,
+  "warm_up_runs": 1,
+  "latency_ms": {
+    "detection_ms": {
+      "median": 624.403178999728,
+      "p90": 1126.8540195997052
+    },
+    "classification_ms": {
+      "median": 0.2929179995589948,
+      "p90": 0.5357595993700671
+    },
+    "segmentation_ms": {
+      "median": 14.149776999602182,
+      "p90": 16.660623799907626
+    },
+    "total_ms": {
+      "median": 643.1891339998401,
+      "p90": 1141.78724859994
+    },
+    "end_to_end_wall_ms": {
+      "median": 644.1346870001325,
+      "p90": 1142.6044032004943
+    }
+  },
+  "fps_end_to_end": 1.5524703453825865,
+  "peak_rss_mb": 811.4,
+  "hardware": {
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "cpu_count": 2,
+    "gpu": "none"
+  },
+  "precision": "float32/float64 NumPy, CPU only",
+  "note": "Cloud CPU container used for development; not an edge-device measurement."
+}

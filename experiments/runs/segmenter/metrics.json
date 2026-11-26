@@ -1,0 +1,159 @@
+{
+  "meta": {
+    "run_id": "20261121-074055",
+    "seed": 42,
+    "git_commit": "unknown",
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "scikit_learn": "1.9.1",
+    "platform": "Linux-6.18.44-fc-v726-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count": 2,
+    "config": {
+      "seed": 42,
+      "data_config": "configs/data.yaml",
+      "output_dir": "experiments/runs/segmenter",
+      "pixels_per_image": 3000,
+      "logreg": {
+        "C": 1.0
+      },
+      "mlp": {
+        "hidden": [
+          64,
+          32
+        ],
+        "lr": 0.01,
+        "epochs": 12,
+        "batch_size": 512,
+        "weight_decay": 1e-05
+      }
+    }
+  },
+  "summary": {
+    "selected_by_val_miou": "mlp",
+    "train_pixels": 630000,
+    "train_seconds": 40.3,
+    "images": {
+      "train": 210,
+      "val": 45,
+      "test": 45
+    },
+    "eval_note": "features at 1/8 res, prediction upsampled; metrics on 1/2-res grid; my_car ignored",
+    "logreg": {
+      "val_miou": 0.820493175955177,
+      "test_miou": 0.8523076011156525,
+      "test_road_iou": 0.7901760686384617,
+      "test_road_dice": 0.8827914555236334,
+      "test_pixel_acc": 0.9352896848345068,
+      "latency_ms": 6.407742000192229
+    },
+    "mlp": {
+      "val_miou": 0.8595483162653319,
+      "test_miou": 0.8772849106190812,
+      "test_road_iou": 0.825759104403402,
+      "test_road_dice": 0.9045652325236334,
+      "test_pixel_acc": 0.9467695474512416,
+      "latency_ms": 14.16802399990047
+    }
+  },
+  "results": {
+    "logreg": {
+      "val": {
+        "pixel_accuracy": 0.9206827915407768,
+        "mean_iou": 0.820493175955177,
+        "per_class_iou": [
+          0.8969090774593926,
+          0.7440772744509614
+        ],
+        "per_class_dice": [
+          0.9456532082820326,
+          0.853261819703715
+        ],
+        "confusion_matrix": [
+          [
+            5783511,
+            274271
+          ],
+          [
+            390487,
+            1932737
+          ]
+        ],
+        "latency_ms_median": 6.135634000202117
+      },
+      "test": {
+        "pixel_accuracy": 0.9352896848345068,
+        "mean_iou": 0.8523076011156525,
+        "per_class_iou": [
+          0.9144391335928433,
+          0.7901760686384617
+        ],
+        "per_class_dice": [
+          0.9553076068568532,
+          0.8827914555236334
+        ],
+        "confusion_matrix": [
+          [
+            6092031,
+            320640
+          ],
+          [
+            249370,
+            2146601
+          ]
+        ],
+        "latency_ms_median": 6.407742000192229
+      },
+      "checkpoint": "/home/claude/traffic_sign_road_safety_monitor/experiments/runs/segmenter/segmenter_logreg.npz"
+    },
+    "mlp": {
+      "val": {
+        "pixel_accuracy": 0.9386017621273628,
+        "mean_iou": 0.8595483162653319,
+        "per_class_iou": [
+          0.9185176446742948,
+          0.8005789878563692
+        ],
+        "per_class_dice": [
+          0.9575284827054388,
+          0.8892461738759675
+        ],
+        "confusion_matrix": [
+          [
+            5800641,
+            257141
+          ],
+          [
+            257438,
+            2065786
+          ]
+        ],
+        "latency_ms_median": 14.076619999741524
+      },
+      "test": {
+        "pixel_accuracy": 0.9467695474512416,
+        "mean_iou": 0.8772849106190812,
+        "per_class_iou": [
+          0.9288107168347606,
+          0.825759104403402
+        ],
+        "per_class_dice": [
+          0.963091617780897,
+          0.9045652325236334
+        ],
+        "confusion_matrix": [
+          [
+            6117609,
+            295062
+          ],
+          [
+            173826,
+            2222145
+          ]
+        ],
+        "latency_ms_median": 14.16802399990047
+      },
+      "checkpoint": "/home/claude/traffic_sign_road_safety_monitor/experiments/runs/segmenter/segmenter_mlp.npz"
+    }
+  }
+}

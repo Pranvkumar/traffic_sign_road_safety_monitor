@@ -1,0 +1,64 @@
+2026-11-21 07:36:00,430 INFO __main__: vae epoch 0 train 570.3 val 552.0 (recon 542.7 kl 9.3)
+2026-11-21 07:36:25,245 INFO __main__: vae epoch 5 train 516.0 val 526.5 (recon 517.7 kl 8.8)
+2026-11-21 07:36:49,368 INFO __main__: vae epoch 10 train 511.9 val 523.0 (recon 514.6 kl 8.4)
+2026-11-21 07:37:14,311 INFO __main__: vae epoch 15 train 510.3 val 522.3 (recon 513.8 kl 8.6)
+2026-11-21 07:37:38,964 INFO __main__: vae epoch 20 train 509.0 val 523.0 (recon 514.7 kl 8.3)
+2026-11-21 07:38:05,060 INFO __main__: vae epoch 25 train 508.2 val 522.1 (recon 513.2 kl 8.9)
+{
+  "vae_best_epoch": 29,
+  "vae_best_val_loss": 521.0721068304769,
+  "vae_train_seconds": 161.1,
+  "rare_classes": {
+    "0": "speed_limit_20",
+    "19": "dangerous_curve_left",
+    "27": "pedestrians",
+    "32": "end_all_restrictions",
+    "41": "end_no_overtaking",
+    "42": "end_no_overtaking_trucks",
+    "37": "go_straight_or_left",
+    "24": "road_narrows_right"
+  },
+  "rare_class_train_counts": {
+    "0": 180,
+    "19": 180,
+    "27": 180,
+    "32": 180,
+    "41": 180,
+    "42": 180,
+    "37": 180,
+    "24": 210
+  },
+  "n_synthetic": 3330,
+  "synthetic_label_consistency(real-only classifier agrees)": 0.578978978978979,
+  "latent_pca_2d_variance_explained": 0.33846008724301957,
+  "ablation_mean_std_over_seeds": {
+    "real_only": {
+      "test_accuracy": {
+        "mean": 0.9026392187912378,
+        "std": 0.0014971606865856813
+      },
+      "test_macro_f1": {
+        "mean": 0.8716663795262792,
+        "std": 0.0033676653448599897
+      },
+      "rare_class_mean_recall": {
+        "mean": 0.7016203703703704,
+        "std": 0.014392862552509073
+      }
+    },
+    "real_plus_synthetic": {
+      "test_accuracy": {
+        "mean": 0.9041699656901557,
+        "std": 0.001185593953297235
+      },
+      "test_macro_f1": {
+        "mean": 0.8743933184533291,
+        "std": 0.0021604190616150254
+      },
+      "rare_class_mean_recall": {
+        "mean": 0.7722222222222221,
+        "std": 0.015256719493781538
+      }
+    }
+  }
+}

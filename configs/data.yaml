@@ -1,0 +1,40 @@
+# Dataset locations, manifests and split rules. Paths are relative to the project root.
+seed: 42
+
+gtsrb:
+  root: data/raw/gtsrb                    # <root>/train/<class>/<track>_<frame>.png, <root>/test/<class>/<id>.png
+  manifest: data/processed/manifests/gtsrb_all.csv
+  source_release: "GTSRB Final_Training + Final_Test (labelled), PNG copy from github.com/AsuosOnurb/traffic-sign-recognition @ dd4b65f"
+  source_license: "UNVERIFIED for redistribution; original benchmark asks for citation of Stallkamp et al. 2012"
+  source_url: https://benchmark.ini.rub.de/gtsrb_dataset.html
+  group_column: physical_sign_id          # one track = one physical sign
+  split_fractions: {train: 0.85, val: 0.15}   # applied to the official training set only; official test kept
+  stratify_column: label_id                # every class appears in train and val
+
+idd_signs:
+  root: data/raw/idd_signs                # <root>/JPEGImages/<camera>/<sequence>/*.jpg + labels/... (YOLO)
+  manifest: data/processed/manifests/idd_signs_all.csv
+  cameras: [frontFar]
+  source_release: "IDD-derived traffic-sign boxes, github.com/AbhayVAshokan/Traffic-Sign-Detection-Dataset @ 2a0f01d (frontFar subset)"
+  source_license: "UNVERIFIED — derived from IDD (IIIT Hyderabad), whose licence requires accepting terms; academic use only, do not redistribute"
+  source_url: https://github.com/AbhayVAshokan/Traffic-Sign-Detection-Dataset
+  group_column: sequence_id               # one drive sequence never crosses splits
+  split_fractions: {train: 0.70, val: 0.15, test: 0.15}
+  stratify_column: null
+  known_classes: [0]                      # single class: traffic_sign
+
+comma10k:
+  root: data/raw/comma10k                 # <root>/imgs/*.png + <root>/masks/*.png (RGB colour-coded)
+  manifest: data/processed/manifests/comma10k_all.csv
+  source_release: "comma10k github.com/commaai/comma10k @ HEAD (seeded random 300 imgs/ subset, seed 42)"
+  source_license: "MIT (Copyright (c) 2020 Comma.ai, Inc.)"
+  source_url: https://github.com/commaai/comma10k
+  group_column: sequence_id               # route hash: one drive never crosses splits
+  split_fractions: {train: 0.70, val: 0.15, test: 0.15}
+  stratify_column: null
+  colour_map:                             # source colours -> source class names
+    "#402020": road
+    "#ff0000": lane_markings
+    "#808060": undrivable
+    "#00ff66": movable
+    "#cc00ff": my_car

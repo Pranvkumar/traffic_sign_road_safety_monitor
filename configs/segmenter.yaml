@@ -1,0 +1,7 @@
+# Road-surface segmentation on the comma10k subset.
+seed: 42
+data_config: configs/data.yaml
+output_dir: experiments/runs/segmenter
+pixels_per_image: 3000            # random training pixels sampled per training image (1/8 resolution)
+logreg: {C: 1.0}
+mlp: {hidden: [64, 32], lr: 0.01, epochs: 12, batch_size: 512, weight_decay: 0.00001}

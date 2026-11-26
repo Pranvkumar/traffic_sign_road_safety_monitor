@@ -1,0 +1,20 @@
+# Class-agnostic traffic-sign detector on the IDD-derived frontFar subset.
+seed: 42
+data_config: configs/data.yaml
+output_dir: experiments/runs/detector
+min_train_box_side: 12        # boxes smaller than this are skipped for positives (still counted in evaluation)
+jitter_per_box: 4
+flip_positives: true          # class-agnostic: a mirrored sign is still a sign
+negatives_per_image: 40
+hard_negative_rounds: 2       # each round mines a different half of the training images
+hard_negatives_per_image: 150
+sign_sizes: [16, 24, 36, 54, 81, 120]
+stride: 6
+nms_iou: 0.3
+max_detections: 20
+eval_iou: 0.5
+scorers:
+  logreg: {C: 0.05}
+  mlp: {hidden: [128], lr: 0.01, epochs: 15, batch_size: 256, weight_decay: 0.0001}
+eval_min_score: 0.1          # AP curve uses windows scoring >= this ...
+eval_max_candidates: 3000    # ... capped to the top-N per image before NMS

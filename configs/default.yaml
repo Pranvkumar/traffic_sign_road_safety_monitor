@@ -1,0 +1,21 @@
+# Inference configuration used by `predict`, `predict-video` and the dashboard.
+seed: 42
+output_dir: outputs/predictions
+logging_level: INFO
+
+detector:
+  checkpoint: models/checkpoints/detector.npz
+  score_threshold: null      # null = use the threshold chosen on the validation split (stored in the checkpoint)
+  nms_iou: 0.3
+  max_detections: 20
+
+classifier:
+  checkpoint: models/checkpoints/classifier_hog_mlp.npz
+  unknown_threshold: 0.6     # below this, label is "unknown" (GTSRB taxonomy ≠ Indian signs)
+
+segmenter:
+  checkpoint: models/checkpoints/segmenter.npz   # trained on comma10k (US roads): qualitative on Indian images
+
+video:
+  frame_stride: 1
+  max_frames: 300

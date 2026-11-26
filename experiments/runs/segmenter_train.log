@@ -1,0 +1,28 @@
+2026-11-21 07:40:15,498 INFO __main__: training pixels: 630000 (road share 0.27)
+{
+  "selected_by_val_miou": "mlp",
+  "train_pixels": 630000,
+  "train_seconds": 40.3,
+  "images": {
+    "train": 210,
+    "val": 45,
+    "test": 45
+  },
+  "eval_note": "features at 1/8 res, prediction upsampled; metrics on 1/2-res grid; my_car ignored",
+  "logreg": {
+    "val_miou": 0.820493175955177,
+    "test_miou": 0.8523076011156525,
+    "test_road_iou": 0.7901760686384617,
+    "test_road_dice": 0.8827914555236334,
+    "test_pixel_acc": 0.9352896848345068,
+    "latency_ms": 6.407742000192229
+  },
+  "mlp": {
+    "val_miou": 0.8595483162653319,
+    "test_miou": 0.8772849106190812,
+    "test_road_iou": 0.825759104403402,
+    "test_road_dice": 0.9045652325236334,
+    "test_pixel_acc": 0.9467695474512416,
+    "latency_ms": 14.16802399990047
+  }
+}

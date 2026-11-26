@@ -1,0 +1,15 @@
+# Educational sequence-classification experiment (see docs/TEMPORAL_TARGET.md).
+# Target: the class of a physical sign track, predicted from its first `sequence_length`
+# (most distant, smallest) observations. This is NOT a risk score or accident probability.
+seed: 42
+data_config: configs/data.yaml
+output_dir: experiments/runs/temporal
+sequence_length: 8
+train_window_stride: 2          # extra training windows from later in each training track
+pca_dims: 32                    # per-frame HOG+colour features reduced with PCA fitted on train tracks
+track_split: {train: 0.70, val: 0.15, test: 0.15}   # by physical sign track, stratified by class
+missing_frame_rate_eval: 0.25   # robustness test: randomly drop this share of frames (mask=0)
+lstm: {hidden: 64, lr: 0.003, epochs: 25, batch_size: 128, weight_decay: 0.0001}
+baselines:
+  last_frame_mlp: {hidden: [64], lr: 0.01, epochs: 25, batch_size: 128}
+  mean_pool_mlp: {hidden: [64], lr: 0.01, epochs: 25, batch_size: 128}

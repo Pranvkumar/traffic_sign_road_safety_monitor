@@ -1,0 +1,18 @@
+# Data audit — idd_signs
+
+- **n_samples**: 928
+- **source_datasets**: ['idd_signs']
+- **missing_files**: []
+- **n_missing_files**: 0
+- **unreadable_files**: []
+- **n_unreadable_files**: 0
+- **n_exact_duplicate_files**: 0
+- **n_exact_duplicates_across_splits**: 0
+- **n_near_duplicate_files(ahash)**: 169
+- **n_near_duplicate_hashes_across_splits**: 10
+- **n_near_duplicate_hashes_across_groups**: 19
+- **image_size**: {'width_min': 1280, 'width_max': 1280, 'height_min': 964, 'height_max': 964, 'formats': {'JPEG': 928}, 'channels': {3: 928}}
+- **detection**: {'images_without_annotation': 0, 'n_boxes': 1257, 'box_problems': ['idd_BLR-2018-04-16_15-44-27_frontFar_0006960: row 4: implausible aspect ratio 6.46', 'idd_BLR-2018-04-16_15-44-27_frontFar_0007020: row 3: implausible aspect ratio 9.26', 'idd_BLR-2018-04-16_15-44-27_frontFar_0007080: row 2: implausible aspect ratio 6.58', 'idd_BLR-2018-04-16_15-44-27_frontFar_0007380: row 2: box extends outside image', 'idd_BLR-2018-04-16_15-44-27_frontFar_0009120: row 0: box extends outside image', 'idd_BLR-2018-04-19_17-16-55_frontFar_0010920: row 0: box extends outside image', 'idd_BLR-2018-04-19_17-56-55_frontFar_000522_r: row 2: box extends outside image'], 'n_box_problems': 7, 'box_width_px': {'min': 4.992, 'median': 30.976, 'max': 717.056}}
+- **leaked_groups**: []
+- **n_leaked_groups**: 0
+- **split_counts**: {'train': 617, 'val': 172, 'test': 139}

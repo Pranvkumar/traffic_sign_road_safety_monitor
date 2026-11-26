@@ -1,0 +1,48 @@
+2026-11-21 07:23:47,841 INFO traffic_monitor.training.common: Decoding GTSRB crops (first run only) ...
+2026-11-21 07:23:58,201 INFO __main__: Training pixel_mlp
+2026-11-21 07:24:23,671 INFO __main__: pixel_mlp val acc 0.8397 test acc 0.8152
+2026-11-21 07:24:23,671 INFO __main__: Training hog_mlp
+2026-11-21 07:24:36,155 INFO __main__: hog_mlp val acc 0.9137 test acc 0.8996
+2026-11-21 07:24:36,155 INFO __main__: Training small_cnn
+2026-11-21 07:25:17,258 INFO __main__: cnn epoch 0 loss 2.0816 val_acc 0.6319 (41s)
+2026-11-21 07:25:59,016 INFO __main__: cnn epoch 1 loss 0.9179 val_acc 0.7868 (42s)
+2026-11-21 07:26:40,988 INFO __main__: cnn epoch 2 loss 0.5892 val_acc 0.8311 (42s)
+2026-11-21 07:27:22,688 INFO __main__: cnn epoch 3 loss 0.4324 val_acc 0.8657 (42s)
+2026-11-21 07:28:04,230 INFO __main__: cnn epoch 4 loss 0.3366 val_acc 0.8852 (42s)
+2026-11-21 07:28:48,215 INFO __main__: cnn epoch 5 loss 0.2635 val_acc 0.8939 (44s)
+2026-11-21 07:29:30,905 INFO __main__: cnn epoch 6 loss 0.2145 val_acc 0.9083 (43s)
+2026-11-21 07:30:23,722 INFO __main__: cnn epoch 7 loss 0.1903 val_acc 0.9112 (53s)
+2026-11-21 07:30:33,753 INFO __main__: small_cnn val acc 0.9112 test acc 0.9134
+{
+  "pixel_mlp": {
+    "val_accuracy": 0.8397129186602871,
+    "val_macro_f1": 0.7889437339686498,
+    "test_accuracy": 0.8152019002375297,
+    "test_macro_f1": 0.7589176195880162,
+    "test_top5": 0.9488519398258115,
+    "test_ece": 0.06726497686209867,
+    "n_parameters": 273451,
+    "train_seconds": 25.3
+  },
+  "hog_mlp": {
+    "val_accuracy": 0.9137161084529506,
+    "val_macro_f1": 0.8712283420205982,
+    "test_accuracy": 0.8996041171813143,
+    "test_macro_f1": 0.8664074102343515,
+    "test_top5": 0.9836104513064133,
+    "test_ece": 0.0337157801684728,
+    "n_parameters": 106539,
+    "train_seconds": 12.3
+  },
+  "small_cnn": {
+    "val_accuracy": 0.9111642743221691,
+    "val_macro_f1": 0.850004646111266,
+    "test_accuracy": 0.9133808392715757,
+    "test_macro_f1": 0.8709160667504835,
+    "test_top5": 0.9904196357878068,
+    "test_ece": 0.010033769030652515,
+    "n_parameters": 273675,
+    "train_seconds": 357.5
+  },
+  "selected_by_val_macro_f1": "hog_mlp"
+}

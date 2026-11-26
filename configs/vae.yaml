@@ -1,0 +1,16 @@
+# Conditional VAE for rare-class GTSRB augmentation (training split only).
+seed: 42
+data_config: configs/data.yaml
+output_dir: experiments/runs/vae
+latent: 16
+hidden: 256
+beta: 1.0
+lr: 0.001
+epochs: 30
+batch_size: 128
+rare_classes: 8                  # the 8 classes with fewest training crops
+target_count_per_rare_class: 600 # synthetic crops added until each rare class reaches this many
+ablation:
+  seeds: [0, 1, 2]
+  classifier: {hidden: [256], lr: 0.02, epochs: 15, batch_size: 128, weight_decay: 0.0001}
+  features: hog_gray_only        # VAE outputs are grayscale, so both arms use grayscale HOG

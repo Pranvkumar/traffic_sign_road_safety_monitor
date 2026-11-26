@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "run_id": "20261121-081512",
+    "seed": 42,
+    "git_commit": "unknown",
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "scikit_learn": "1.9.1",
+    "platform": "Linux-6.18.44-fc-v726-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count": 2,
+    "config": {
+      "seed": 42,
+      "data_config": "configs/data.yaml",
+      "output_dir": "experiments/runs/detector",
+      "min_train_box_side": 12,
+      "jitter_per_box": 4,
+      "negatives_per_image": 40,
+      "hard_negative_images": 250,
+      "hard_negatives_per_image": 30,
+      "sign_sizes": [
+        16,
+        24,
+        36,
+        54,
+        81,
+        120
+      ],
+      "stride": 6,
+      "nms_iou": 0.3,
+      "max_detections": 20,
+      "eval_iou": 0.5,
+      "scorers": {
+        "logreg": {
+          "C": 0.05
+        },
+        "mlp": {
+          "hidden": [
+            64
+          ],
+          "lr": 0.01,
+          "epochs": 15,
+          "batch_size": 256,
+          "weight_decay": 0.0001
+        }
+      },
+      "eval_min_score": 0.1,
+      "eval_max_candidates": 3000
+    }
+  },
+  "summary": {
+    "selected_by_val_ap50": "mlp",
+    "train_seconds": 257.6,
+    "n_pos_patches": 3976,
+    "n_neg_patches": 24680,
+    "n_hard_negatives": 7500,
+    "images": {
+      "train": 617,
+      "val": 172,
+      "test": 139
+    }
+  },
+  "results": {
+    "logreg": {
+      "val": {
+        "ap50": {
+          "ap": 0.010092838065027702,
+          "n_gt": 232,
+          "max_recall": 0.29310344827586204
+        },
+        "ap30": {
+          "ap": 0.018000363433031488,
+          "n_gt": 232,
+          "max_recall": 0.521551724137931
+        },
+        "chosen_threshold": 0.95,
+        "f1_at_threshold": 0.035532994923857864,
+        "at_threshold": {
+          "score_threshold": 0.95,
+          "iou_threshold": 0.5,
+          "tp": 21,
+          "fp": 929,
+          "fn": 211,
+          "precision": 0.022105263157894735,
+          "recall": 0.09051724137931035,
+          "missed_sign_rate": 0.9094827586206896,
+          "false_positives_per_image": 5.401162790697675
+        }
+      },
+      "test": {
+        "ap50": {
+          "ap": 0.0006844732976708139,
+          "n_gt": 164,
+          "max_recall": 0.12195121951219512
+        },
+        "ap30": {
+          "ap": 0.0020631384283007134,
+          "n_gt": 164,
+          "max_recall": 0.2865853658536585
+        },
+        "at_val_threshold": {
+          "score_threshold": 0.95,
+          "iou_threshold": 0.5,
+          "tp": 2,
+          "fp": 653,
+          "fn": 162,
+          "precision": 0.0030534351145038168,
+          "recall": 0.012195121951219513,
+          "missed_sign_rate": 0.9878048780487805,
+          "false_positives_per_image": 4.697841726618705
+        },
+        "recall_by_size": {
+          "<16px": {
+            "n_gt": 37,
+            "recall": 0.0
+          },
+          "16-32px": {
+            "n_gt": 49,
+            "recall": 0.02040816326530612
+          },
+          "32-64px": {
+            "n_gt": 50,
+            "recall": 0.02
+          },
+          ">=64px": {
+            "n_gt": 28,
+            "recall": 0.0
+          }
+        },
+        "latency_ms_per_image": {
+          "median": 260.03763600010643,
+          "p90": 305.7972981998321,
+          "n": 20,
+          "note": "1280x964 input, CPU, batch 1, HOG + scoring + NMS at the chosen threshold"
+        }
+      },
+      "checkpoint": "/home/claude/traffic_sign_road_safety_monitor/experiments/runs/detector/detector_logreg.npz"
+    },
+    "mlp": {
+      "val": {
+        "ap50": {
+          "ap": 0.0784689648932203,
+          "n_gt": 232,
+          "max_recall": 0.4051724137931034
+        },
+        "ap30": {
+          "ap": 0.12355497362406813,
+          "n_gt": 232,
+          "max_recall": 0.6637931034482759
+        },
+        "chosen_threshold": 0.1,
+        "f1_at_threshold": 0.010784763653051858,
+        "at_threshold": {
+          "score_threshold": 0.1,
+          "iou_threshold": 0.5,
+          "tp": 94,
+          "fp": 17106,
+          "fn": 138,
+          "precision": 0.005465116279069767,
+          "recall": 0.4051724137931034,
+          "missed_sign_rate": 0.5948275862068966,
+          "false_positives_per_image": 99.45348837209302
+        }
+      },
+      "test": {
+        "ap50": {
+          "ap": 0.004482699970824847,
+          "n_gt": 164,
+          "max_recall": 0.23780487804878048
+        },
+        "ap30": {
+          "ap": 0.02622205731395164,
+          "n_gt": 164,
+          "max_recall": 0.5365853658536586
+        },
+        "at_val_threshold": {
+          "score_threshold": 0.1,
+          "iou_threshold": 0.5,
+          "tp": 39,
+          "fp": 13861,
+          "fn": 125,
+          "precision": 0.002805755395683453,
+          "recall": 0.23780487804878048,
+          "missed_sign_rate": 0.7621951219512195,
+          "false_positives_per_image": 99.71942446043165
+        },
+        "recall_by_size": {
+          "<16px": {
+            "n_gt": 37,
+            "recall": 0.05405405405405406
+          },
+          "16-32px": {
+            "n_gt": 49,
+            "recall": 0.30612244897959184
+          },
+          "32-64px": {
+            "n_gt": 50,
+            "recall": 0.28
+          },
+          ">=64px": {
+            "n_gt": 28,
+            "recall": 0.2857142857142857
+          }
+        },
+        "latency_ms_per_image": {
+          "median": 589.1474264999488,
+          "p90": 803.7965969997459,
+          "n": 20,
+          "note": "1280x964 input, CPU, batch 1, HOG + scoring + NMS at the chosen threshold"
+        }
+      },
+      "checkpoint": "/home/claude/traffic_sign_road_safety_monitor/experiments/runs/detector/detector_mlp.npz"
+    }
+  }
+}

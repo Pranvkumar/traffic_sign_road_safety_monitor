@@ -1,0 +1,43 @@
+2026-11-21 08:17:13,291 INFO __main__: Initial patches: 7952 pos, 24680 neg
+2026-11-21 08:23:41,649 INFO __main__: Round 0: hard negatives mined 46350
+2026-11-21 08:30:40,960 INFO __main__: Round 1: hard negatives mined 46200
+2026-11-21 08:31:12,142 INFO __main__: Scorers trained in 851s; evaluating on validation
+2026-11-21 08:31:13,550 INFO __main__: val eval 0/172
+2026-11-21 08:31:47,219 INFO __main__: val eval 25/172
+2026-11-21 08:32:19,176 INFO __main__: val eval 50/172
+2026-11-21 08:32:51,056 INFO __main__: val eval 75/172
+2026-11-21 08:33:21,397 INFO __main__: val eval 100/172
+2026-11-21 08:33:53,029 INFO __main__: val eval 125/172
+2026-11-21 08:34:24,019 INFO __main__: val eval 150/172
+2026-11-21 08:34:54,452 INFO __main__: test eval 0/139
+2026-11-21 08:35:23,690 INFO __main__: test eval 25/139
+2026-11-21 08:35:52,619 INFO __main__: test eval 50/139
+2026-11-21 08:36:22,206 INFO __main__: test eval 75/139
+2026-11-21 08:36:50,918 INFO __main__: test eval 100/139
+2026-11-21 08:37:20,498 INFO __main__: test eval 125/139
+{
+  "summary": {
+    "selected_by_val_ap50": "logreg",
+    "train_seconds": 850.5,
+    "n_pos_patches": 7952,
+    "n_neg_patches": 24680,
+    "n_hard_negatives": 92550,
+    "images": {
+      "train": 617,
+      "val": 172,
+      "test": 139
+    }
+  },
+  "logreg": {
+    "val_ap50": 0.13056546725894436,
+    "test_ap50": 0.010791916426103002,
+    "test_missed_sign_rate": 0.9512195121951219,
+    "test_fp_per_image": 0.5179856115107914
+  },
+  "mlp": {
+    "val_ap50": 0.09854965169765653,
+    "test_ap50": 0.018402352047057795,
+    "test_missed_sign_rate": 0.7560975609756098,
+    "test_fp_per_image": 97.35971223021583
+  }
+}

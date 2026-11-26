@@ -1,0 +1,81 @@
+{
+  "n_samples": 51839,
+  "source_datasets": [
+    "gtsrb"
+  ],
+  "missing_files": [],
+  "n_missing_files": 0,
+  "unreadable_files": [],
+  "n_unreadable_files": 0,
+  "n_exact_duplicate_files": 16,
+  "n_exact_duplicates_across_splits": 8,
+  "n_near_duplicate_files(ahash)": 12628,
+  "n_near_duplicate_hashes_across_splits": 1096,
+  "n_near_duplicate_hashes_across_groups": 2016,
+  "image_size": {
+    "width_min": 25,
+    "width_max": 266,
+    "height_min": 25,
+    "height_max": 232,
+    "formats": {
+      "PNG": 51839
+    },
+    "channels": {
+      "3": 51839
+    }
+  },
+  "class_counts": {
+    "0": 270,
+    "1": 2940,
+    "2": 3000,
+    "3": 1860,
+    "4": 2640,
+    "5": 2490,
+    "6": 570,
+    "7": 1890,
+    "8": 1860,
+    "9": 1950,
+    "10": 2670,
+    "11": 1740,
+    "12": 2790,
+    "13": 2880,
+    "14": 1050,
+    "15": 840,
+    "16": 570,
+    "17": 1470,
+    "18": 1590,
+    "19": 270,
+    "20": 450,
+    "21": 420,
+    "22": 510,
+    "23": 660,
+    "24": 360,
+    "25": 1980,
+    "26": 780,
+    "27": 300,
+    "28": 690,
+    "29": 360,
+    "30": 600,
+    "31": 1050,
+    "32": 300,
+    "33": 899,
+    "34": 540,
+    "35": 1590,
+    "36": 510,
+    "37": 270,
+    "38": 2760,
+    "39": 390,
+    "40": 450,
+    "41": 300,
+    "42": 330
+  },
+  "n_classes": 43,
+  "imbalance_ratio_max_over_min": 11.11111111111111,
+  "leaked_groups": [],
+  "n_leaked_groups": 0,
+  "split_counts": {
+    "train": 32939,
+    "test": 12630,
+    "val": 6270
+  }
+}

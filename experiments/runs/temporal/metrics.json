@@ -1,0 +1,169 @@
+{
+  "meta": {
+    "run_id": "20261121-073211",
+    "seed": 42,
+    "git_commit": "unknown",
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "scikit_learn": "1.9.1",
+    "platform": "Linux-6.18.44-fc-v726-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count": 2,
+    "config": {
+      "seed": 42,
+      "data_config": "configs/data.yaml",
+      "output_dir": "experiments/runs/temporal",
+      "sequence_length": 8,
+      "train_window_stride": 2,
+      "pca_dims": 32,
+      "track_split": {
+        "train": 0.7,
+        "val": 0.15,
+        "test": 0.15
+      },
+      "missing_frame_rate_eval": 0.25,
+      "lstm": {
+        "hidden": 64,
+        "lr": 0.003,
+        "epochs": 25,
+        "batch_size": 128,
+        "weight_decay": 0.0001
+      },
+      "baselines": {
+        "last_frame_mlp": {
+          "hidden": [
+            64
+          ],
+          "lr": 0.01,
+          "epochs": 25,
+          "batch_size": 128
+        },
+        "mean_pool_mlp": {
+          "hidden": [
+            64
+          ],
+          "lr": 0.01,
+          "epochs": 25,
+          "batch_size": 128
+        }
+      }
+    }
+  },
+  "summary": {
+    "last_frame_mlp": {
+      "val_acc": 0.69377990430622,
+      "test_acc": 0.6169154228855721,
+      "test_macro_f1": 0.4907829041411451,
+      "test_acc_missing_frames": 0.6169154228855721
+    },
+    "mean_pool_mlp": {
+      "val_acc": 0.7320574162679426,
+      "test_acc": 0.681592039800995,
+      "test_macro_f1": 0.5309404275614946,
+      "test_acc_missing_frames": 0.6965174129353234
+    },
+    "lstm": {
+      "val_acc": 0.7464114832535885,
+      "test_acc": 0.7313432835820896,
+      "test_macro_f1": 0.6177482763954072,
+      "test_acc_missing_frames": 0.7164179104477612
+    },
+    "tracks": {
+      "train": 897,
+      "val": 209,
+      "test": 201
+    },
+    "sequences": {
+      "train_windows": 10763,
+      "val": 209,
+      "test": 201
+    },
+    "seconds": 25.6
+  },
+  "results": {
+    "last_frame_mlp": {
+      "n_parameters": 4907,
+      "best_epoch": 19,
+      "val_accuracy": 0.69377990430622,
+      "test": {
+        "accuracy": 0.6169154228855721,
+        "macro_precision": 0.5186126534963744,
+        "macro_recall": 0.4992466190140608,
+        "macro_f1": 0.4907829041411451,
+        "weighted_f1": 0.5993882721492151
+      },
+      "test_with_missing_frames": {
+        "accuracy": 0.6169154228855721,
+        "macro_precision": 0.5139598127970221,
+        "macro_recall": 0.49650743313534007,
+        "macro_f1": 0.48887120631306685,
+        "weighted_f1": 0.6045771806965836
+      }
+    },
+    "mean_pool_mlp": {
+      "n_parameters": 4907,
+      "best_epoch": 19,
+      "val_accuracy": 0.7320574162679426,
+      "test": {
+        "accuracy": 0.681592039800995,
+        "macro_precision": 0.5219638242894057,
+        "macro_recall": 0.5606656263633008,
+        "macro_f1": 0.5309404275614946,
+        "weighted_f1": 0.6634831750371697
+      },
+      "test_with_missing_frames": {
+        "accuracy": 0.6965174129353234,
+        "macro_precision": 0.5671735241502684,
+        "macro_recall": 0.597663512198396,
+        "macro_f1": 0.5732327863654814,
+        "weighted_f1": 0.6827416445941468
+      }
+    },
+    "lstm": {
+      "n_parameters": 27627,
+      "best_epoch": 20,
+      "val_accuracy": 0.7464114832535885,
+      "val_curve": [
+        0.5645933014354066,
+        0.6698564593301436,
+        0.7129186602870813,
+        0.6889952153110048,
+        0.69377990430622,
+        0.6889952153110048,
+        0.69377990430622,
+        0.7272727272727273,
+        0.7177033492822966,
+        0.7272727272727273,
+        0.7081339712918661,
+        0.7272727272727273,
+        0.6698564593301436,
+        0.7368421052631579,
+        0.7320574162679426,
+        0.6842105263157895,
+        0.7033492822966507,
+        0.7368421052631579,
+        0.7081339712918661,
+        0.7177033492822966,
+        0.7464114832535885,
+        0.722488038277512,
+        0.722488038277512,
+        0.7177033492822966,
+        0.722488038277512
+      ],
+      "test": {
+        "accuracy": 0.7313432835820896,
+        "macro_precision": 0.6288715160808185,
+        "macro_recall": 0.6368091211114467,
+        "macro_f1": 0.6177482763954072,
+        "weighted_f1": 0.7103929274161703
+      },
+      "test_with_missing_frames": {
+        "accuracy": 0.7164179104477612,
+        "macro_precision": 0.6584818282492702,
+        "macro_recall": 0.6435266284103492,
+        "macro_f1": 0.6374972844373089,
+        "weighted_f1": 0.7033164095222225
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+# Inference configuration used by `predict`, `predict-video` and the dashboard.
+seed: 42
+output_dir: outputs/predictions
+logging_level: INFO
+
+detector:
+  type: yolo                  # one-stage YOLO11n trained on ETSC (171 European sign classes, CC BY-NC-SA 4.0)
+  checkpoint: models/checkpoints/yolo_signs.pt   # produced by scripts/train_yolo.py
+  score_threshold: 0.25
+  nms_iou: 0.5
+  max_detections: 50
+  imgsz: 960                 # same size as training
+  unknown_threshold: 0.4     # class confidence below this -> "unknown"
+
+hazard:                       # optional road-hazard model; delete this block to switch it off
+  checkpoint: models/checkpoints/yolo_hazard.pt  # YOLO11n trained on HRP4K potholes (CC BY 4.0) by scripts/train_hazard.py
+  score_threshold: 0.3
+  nms_iou: 0.5
+  max_detections: 30
+  imgsz: 960
+
+segmenter:
+  checkpoint: models/checkpoints/segmenter.npz   # trained on comma10k (US roads): qualitative on Indian images
+
+video:
+  frame_stride: 1
+  max_frames: 300

@@ -1,0 +1,32 @@
+2026-11-21 07:31:49,084 INFO __main__: sequences train 10763 val 209 test 201
+{
+  "last_frame_mlp": {
+    "val_acc": 0.69377990430622,
+    "test_acc": 0.6169154228855721,
+    "test_macro_f1": 0.4907829041411451,
+    "test_acc_missing_frames": 0.6169154228855721
+  },
+  "mean_pool_mlp": {
+    "val_acc": 0.7320574162679426,
+    "test_acc": 0.681592039800995,
+    "test_macro_f1": 0.5309404275614946,
+    "test_acc_missing_frames": 0.6965174129353234
+  },
+  "lstm": {
+    "val_acc": 0.7464114832535885,
+    "test_acc": 0.7313432835820896,
+    "test_macro_f1": 0.6177482763954072,
+    "test_acc_missing_frames": 0.7164179104477612
+  },
+  "tracks": {
+    "train": 897,
+    "val": 209,
+    "test": 201
+  },
+  "sequences": {
+    "train_windows": 10763,
+    "val": 209,
+    "test": 201
+  },
+  "seconds": 25.6
+}
